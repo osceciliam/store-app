@@ -1,0 +1,13 @@
+import { SafeUrl } from "@angular/platform-browser";
+import { Category } from "./category.model";
+
+export interface Product{
+    id: number;
+    title: string;
+    description: string;
+    price: number;
+    images: string[];
+    creationAt: string;
+    category: Category;
+    sanitizedImageUrls?: SafeUrl[];
+}

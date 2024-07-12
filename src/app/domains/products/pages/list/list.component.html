@@ -1,0 +1,36 @@
+
+<div class="flex space-x-4 mt-5">
+    <div class="w-80">
+        <ul>
+            <li routerLink="/" >All</li>
+            @for (category of categories(); track $index) {
+                <li>
+                    <a routerLink="/" [queryParams]="{ category_id: category.id }">{{ category.name }}</a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="grid grid-cols-4 gap-8 w-full ">
+
+        @for (product of products(); track $index) {
+            <!-- <app-product
+                [title]="product.title"
+                [price]="product.price"
+                [img]="product.image"
+                (addToCart)="fromChild($event)"        
+            /> -->
+            <app-product
+                [product]="product"
+                (addToCart)="addToCart($event)"        
+            />
+        }
+    
+        <!-- <app-product title="Product 1" [price]="23" img="https://picsum.photos/640/640?r=562" (addToCart)="fromChild($event)" />
+        <app-product title="Product 2" [price]="23" img="https://picsum.photos/640/640?r=62" (addToCart)="fromChild($event)"/>
+        <app-product title="Product 3" [price]="23" img="https://picsum.photos/640/640?r=52" (addToCart)="fromChild($event)"/>
+        <app-product title="Product 4" [price]="23" img="https://picsum.photos/640/640?r=3" (addToCart)="fromChild($event)"/>
+        <app-product title="Product 5" [price]="23" img="https://picsum.photos/640/640?r=2" (addToCart)="fromChild($event)"/>
+        <app-product title="Product 6" [price]="23" img="https://picsum.photos/640/640?r=1" (addToCart)="fromChild($event)"/> -->
+    </div>
+</div>
+
